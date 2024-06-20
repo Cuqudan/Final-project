@@ -5,8 +5,7 @@ import { useNavigate } from "react-router-dom";
 const HeaderContact = () => {
   const navigation = useNavigate();
   return (
-    <div>
-      <div className={styles.headerContact}>
+    <div className={styles.headerContact}>
         <div className={styles.container}>
           <img
             src="https://grandprix.qodeinteractive.com/wp-content/uploads/2019/09/borko-logo-black.png"
@@ -126,7 +125,6 @@ const HeaderContact = () => {
           </nav>
         </div>
       </div>
-    </div>
   );
 };
 

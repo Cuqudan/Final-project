@@ -14,7 +14,7 @@ const Home = () => {
   const [product, setproduct] = useState([]);
   const getdata = () => {
     axios
-      .get("https://dummyjson.com/products")
+      .get("https://dummyjson.com/products/?limit=9")
       .then((res) => setproduct(res.data.products));
   };
   useEffect(() => {

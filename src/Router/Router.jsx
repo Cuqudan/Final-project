@@ -5,6 +5,7 @@ import AboutMe from "../Pages/AboutMe/AboutMe";
 import AboutUs from "../Pages/AboutUs/AboutUs";
 import Contact from "../Pages/Contact/Contact";
 import MyAccount from "../Pages/MyAccount/MyAccount";
+import ProductList from "../Pages/ProductList/ProductList";
 
 
 const Router = () => {
@@ -17,6 +18,8 @@ const Router = () => {
           <Route path="/aboutus" element={<AboutUs/>}/>
           <Route path="/contact" element={<Contact/>}/>
           <Route path="/myaccount" element={<MyAccount/>}/>
+          <Route path="/productlist" element={<ProductList/>}/>
+          <Route path="/productsingle" element={<MyAccount/>}/>
         </Routes>
       </BrowserRouter>
     </div>
