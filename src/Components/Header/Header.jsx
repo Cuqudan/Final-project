@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import styles from "./Header.module.scss";
 import { PiDotsNine } from "react-icons/pi";
+import { useNavigate } from "react-router-dom";
 
 const Header = () => {
-
+  const navigation = useNavigate();
+  
   return (
     <div className={styles.header}>
       <div className={styles.container}>
@@ -17,17 +19,29 @@ const Header = () => {
               <li>
                 <a href="">HOME</a>
                 <div className={styles.homeDropdown}>
-                  <a href="">MAIN HOME</a>
-                  <a href="">MY ACCOUNT</a>
-                  <a href="">CART</a>
+                  <a href="" onClick={() => navigation("/")}>
+                    MAIN HOME
+                  </a>
+                  <a href="" onClick={() => navigation("/myaccount")}>
+                    MY ACCOUNT
+                  </a>
+                  <a href="" onClick={() => navigation("/cart")}>
+                    CART
+                  </a>
                 </div>
               </li>
               <li>
                 <a href="">PAGES</a>
                 <div className={styles.pagesDropdown}>
-                  <a href="">ABOUT ME</a>
-                  <a href="">ABOUT US</a>
-                  <a href="">CONTACT</a>
+                  <a href="" onClick={() => navigation("/aboutme")}>
+                    ABOUT ME
+                  </a>
+                  <a href="" onClick={() => navigation("/aboutus")}>
+                    ABOUT US
+                  </a>
+                  <a href="" onClick={() => navigation("/contact")}>
+                    CONTACT
+                  </a>
                 </div>
               </li>
               <li>
@@ -39,8 +53,12 @@ const Header = () => {
               <li>
                 <a href="">SHOP</a>
                 <div className={styles.shopDropdown}>
-                  <a href="">PRODUCT LIST</a>
-                  <a href="">PRODUCT SINGLE</a>
+                  <a href="" onClick={() => navigation("/productlist")}>
+                    PRODUCT LIST
+                  </a>
+                  <a href="" onClick={() => navigation("/productsingle")}>
+                    PRODUCT SINGLE
+                  </a>
                 </div>
               </li>
               <li>
@@ -50,9 +68,9 @@ const Header = () => {
           </nav>
           <input type="text" placeholder="SEARCH" />
         </div>
-        <button>
-            <PiDotsNine />
-          </button>
+        <button >
+          <PiDotsNine />
+        </button>
       </div>
       <div className={styles.headerMobileNavbar}>
         <nav>
@@ -60,17 +78,29 @@ const Header = () => {
             <li>
               <a href="">HOME</a>
               <div className={styles.homeDropdown}>
-                <a href="">MAIN HOME</a>
-                <a href="">MY ACCOUNT</a>
-                <a href="">CART</a>
+                <a href="" onClick={() => navigation("/")}>
+                  MAIN HOME
+                </a>
+                <a href="" onClick={() => navigation("/myaccount")}>
+                  MY ACCOUNT
+                </a>
+                <a href="" onClick={() => navigation("/cart")}>
+                  CART
+                </a>
               </div>
             </li>
             <li>
               <a href="">PAGES</a>
               <div className={styles.pagesDropdown}>
-                <a href="">ABOUT ME</a>
-                <a href="">ABOUT US</a>
-                <a href="">CONTACT</a>
+                <a href="" onClick={() => navigation("/aboutme")}>
+                  ABOUT ME
+                </a>
+                <a href="" onClick={() => navigation("/aboutus")}>
+                  ABOUT US
+                </a>
+                <a href="" onClick={() => navigation("/contact")}>
+                  CONTACT
+                </a>
               </div>
             </li>
             <li>
@@ -82,8 +112,12 @@ const Header = () => {
             <li>
               <a href="">SHOP</a>
               <div className={styles.shopDropdown}>
-                <a href="">PRODUCT LIST</a>
-                <a href="">PRODUCT SINGLE</a>
+                <a href="" onClick={() => navigation("/productlist")}>
+                  PRODUCT LIST
+                </a>
+                <a href="" onClick={() => navigation("/productsingle")}>
+                  PRODUCT SINGLE
+                </a>
               </div>
             </li>
             <li>
