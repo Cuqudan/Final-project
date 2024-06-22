@@ -1,8 +1,10 @@
 import React from "react";
 import styles from "./SectionSpesification.module.scss";
 import { HiOutlineArrowLongRight } from "react-icons/hi2";
+import { useNavigate } from "react-router-dom";
 
 const SectionSpesification = () => {
+  const navigation = useNavigate()
   return (
     <div className={styles.spesification}>
       <div className={styles.spesificationText}>
@@ -12,7 +14,7 @@ const SectionSpesification = () => {
       <div className={styles.spesificationImg}>
         <div className={styles.spesificationImgtext}>
           <h3>New Dry <br /> Clutch</h3>
-          <button>
+          <button onClick={()=> navigation("/aboutme")}>
             READ <br /> MORE <HiOutlineArrowLongRight size={20} />
           </button>
         </div>

@@ -1,7 +1,9 @@
 import React from "react";
 import styles from "./SectionAccelelrating.module.scss";
 import { HiOutlineArrowLongRight } from "react-icons/hi2";
+import { useNavigate } from "react-router-dom";
 const SectionAccelelrating = () => {
+  const navigation = useNavigate()
   return (
     <div className={styles.accelelrating}>
       <div className={styles.accelelratingText}>
@@ -22,7 +24,7 @@ const SectionAccelelrating = () => {
             Lorem ipsum dolor sit amet, sea no tantas consul disputationi, ei
             his tota legere.
           </p>
-          <button>
+          <button onClick={()=> navigation("/aboutme")}>
             READ MORE <HiOutlineArrowLongRight size={20} />
           </button>
         </div>
@@ -38,7 +40,7 @@ const SectionAccelelrating = () => {
             his tota legere.
           </p>
 
-          <button>
+          <button onClick={()=> navigation("/aboutme")}>
             READ MORE <HiOutlineArrowLongRight size={20} />
           </button>
         </div>
@@ -53,7 +55,7 @@ const SectionAccelelrating = () => {
             Lorem ipsum dolor sit amet, sea no tantas consul disputationi, ei
             his tota legere.
           </p>
-          <button>
+          <button onClick={()=> navigation("/aboutme")}>
           READ MORE <HiOutlineArrowLongRight size={20} />
         </button>
         </div>

@@ -1,7 +1,9 @@
 import React from "react";
 import styles from "./SectionRideability.module.scss";
 import { HiOutlineArrowLongRight } from "react-icons/hi2";
+import { useNavigate } from "react-router-dom";
 const SectionRideability = () => {
+  const navigation = useNavigate()
   return (
     <div className={styles.rideability}>
       <div className={styles.container}>
@@ -13,7 +15,7 @@ const SectionRideability = () => {
             viverra nulla ut metus varius laoreet srtrum aenean imperdiet. Etiam
             ultricies nisi vel augue.
           </p>
-          <button>
+          <button onClick={()=> navigation("/productlist")}>
             READ MORE <HiOutlineArrowLongRight size={20} />
           </button>
         </div>

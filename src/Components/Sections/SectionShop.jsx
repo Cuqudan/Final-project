@@ -1,8 +1,10 @@
 import React from "react";
 import styles from "./SectionShop.module.scss";
 import { HiOutlineArrowLongRight } from "react-icons/hi2";
+import { useNavigate } from "react-router-dom";
 
 const SectionShop = () => {
+  const navigation = useNavigate()
   return (
     <div className={styles.shop}>
       <div className={styles.shopCard}>
@@ -10,7 +12,7 @@ const SectionShop = () => {
           <p>Racing Boots</p>
           <h3>X-Fourteent boots</h3>
         </div>
-        <button>
+        <button onClick={()=> navigation("/productlist")}>
           SHOP NOW <HiOutlineArrowLongRight size={20} />
         </button>
         <img
@@ -23,7 +25,7 @@ const SectionShop = () => {
           <p>premium helmets </p>
           <h3>RJ Platinum-R helmets </h3>
         </div>
-        <button>
+        <button onClick={()=> navigation("/productlist")}>
           SHOP NOW <HiOutlineArrowLongRight size={20} />
         </button>
         <img
@@ -36,7 +38,7 @@ const SectionShop = () => {
           <p>racing gloves </p>
           <h3>NEOTEC II racing gloves </h3>
         </div>
-        <button>
+        <button onClick={()=> navigation("/productlist")}>
           SHOP NOW <HiOutlineArrowLongRight size={20} />
         </button>
         <img

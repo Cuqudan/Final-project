@@ -1,8 +1,10 @@
 import React from "react";
 import styles from "./SectionStability.module.scss";
 import { HiOutlineArrowLongRight } from "react-icons/hi2";
+import { useNavigate } from "react-router-dom";
 
 const SectionStability = () => {
+  const navigation = useNavigate()
   return (
     <div className={styles.stability}>
       <div className={styles.stabilityText}>
@@ -21,7 +23,7 @@ const SectionStability = () => {
             <p>JULY 10, 2024 </p>
             <h4>Old Bikes, Old Riders </h4>
           </div>
-          <button>
+          <button onClick={()=> navigation("/aboutus")}>
             READ <br /> MORE <HiOutlineArrowLongRight size={20} />
           </button>
         </div>
@@ -34,7 +36,7 @@ const SectionStability = () => {
             <p>JULY 10, 2024 </p>
             <h4>Exceed Expectations </h4>
           </div>
-          <button>
+          <button onClick={()=> navigation("/aboutus")}>
             READ <br /> MORE <HiOutlineArrowLongRight size={20} />
           </button>
         </div>
@@ -47,7 +49,7 @@ const SectionStability = () => {
             <p>JULY 10, 2024 </p>
             <h4>2019 Grand Prix </h4>
           </div>
-          <button>
+          <button onClick={()=> navigation("/aboutus")}>
             READ <br /> MORE <HiOutlineArrowLongRight size={20} />
           </button>
         </div>

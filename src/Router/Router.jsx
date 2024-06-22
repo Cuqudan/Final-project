@@ -6,6 +6,8 @@ import AboutUs from "../Pages/AboutUs/AboutUs";
 import Contact from "../Pages/Contact/Contact";
 import MyAccount from "../Pages/MyAccount/MyAccount";
 import ProductList from "../Pages/ProductList/ProductList";
+import Basket from "../Pages/Basket/Basket";
+import Wishlist from "../Pages/Wishlist/Wishlist";
 
 
 const Router = () => {
@@ -19,7 +21,8 @@ const Router = () => {
           <Route path="/contact" element={<Contact/>}/>
           <Route path="/myaccount" element={<MyAccount/>}/>
           <Route path="/productlist" element={<ProductList/>}/>
-          <Route path="/productsingle" element={<MyAccount/>}/>
+          <Route path="/basket" element={<Basket/>}/>
+          <Route path="/wishlist" element={<Wishlist/>}/>
         </Routes>
       </BrowserRouter>
     </div>

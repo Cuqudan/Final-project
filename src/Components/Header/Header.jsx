@@ -20,19 +20,8 @@ const Header = () => {
         <div className={styles.headerItems}>
           <nav>
             <ul>
-              <li>
+              <li onClick={() => navigation("/")}>
                 <a href="">HOME</a>
-                <div className={styles.homeDropdown}>
-                  <a href="" onClick={() => navigation("/")}>
-                    MAIN HOME
-                  </a>
-                  <a href="" onClick={() => navigation("/myaccount")}>
-                    MY ACCOUNT
-                  </a>
-                  <a href="" onClick={() => navigation("/cart")}>
-                    CART
-                  </a>
-                </div>
               </li>
               <li>
                 <a href="">PAGES</a>
@@ -48,25 +37,17 @@ const Header = () => {
                   </a>
                 </div>
               </li>
-              <li>
-                <a href="">PORTFOLIO</a>
+              <li onClick={() => navigation("/wishlist")}>
+                <a href="">FAVORITES</a>
               </li>
-              <li>
-                <a href="">BLOG</a>
+              <li onClick={() => navigation("/basket")}>
+                <a href="">CART</a>
               </li>
-              <li>
+              <li onClick={() => navigation("/productlist")}>
                 <a href="">SHOP</a>
-                <div className={styles.shopDropdown}>
-                  <a href="" onClick={() => navigation("/productlist")}>
-                    PRODUCT LIST
-                  </a>
-                  <a href="" onClick={() => navigation("/productsingle")}>
-                    PRODUCT SINGLE
-                  </a>
-                </div>
               </li>
-              <li>
-                <a href="">LANDING</a>
+              <li onClick={() => navigation("/myaccount")}>
+                <a href="">PROFILE</a>
               </li>
             </ul>
           </nav>
@@ -80,19 +61,8 @@ const Header = () => {
         <div className={styles.headerMobileNavbar}>
           <nav>
             <ul>
-              <li>
+              <li onClick={() => navigation("/")}>
                 <a href="">HOME</a>
-                <div className={styles.homeDropdown}>
-                  <a href="" onClick={() => navigation("/")}>
-                    MAIN HOME
-                  </a>
-                  <a href="" onClick={() => navigation("/myaccount")}>
-                    MY ACCOUNT
-                  </a>
-                  <a href="" onClick={() => navigation("/cart")}>
-                    CART
-                  </a>
-                </div>
               </li>
               <li>
                 <a href="">PAGES</a>
@@ -108,25 +78,17 @@ const Header = () => {
                   </a>
                 </div>
               </li>
-              <li>
-                <a href="">PORTFOLIO</a>
+              <li onClick={() => navigation("/wishlist")}>
+                <a href="">FAVORITES</a>
               </li>
-              <li>
-                <a href="">BLOG</a>
+              <li onClick={() => navigation("/basket")}>
+                <a href="">CART</a>
               </li>
-              <li>
+              <li onClick={() => navigation("/productlist")}>
                 <a href="">SHOP</a>
-                <div className={styles.shopDropdown}>
-                  <a href="" onClick={() => navigation("/productlist")}>
-                    PRODUCT LIST
-                  </a>
-                  <a href="" onClick={() => navigation("/productsingle")}>
-                    PRODUCT SINGLE
-                  </a>
-                </div>
               </li>
-              <li>
-                <a href="">LANDING</a>
+              <li onClick={() => navigation("/myaccount")}>
+                <a href="">PROFILE</a>
               </li>
             </ul>
           </nav>

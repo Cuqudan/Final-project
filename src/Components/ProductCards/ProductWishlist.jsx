@@ -2,15 +2,18 @@ import React from "react";
 import styles from "./ProductCart.module.scss";
 import { FaRegStar } from "react-icons/fa";
 import { HiOutlineArrowLongRight } from "react-icons/hi2";
-import { GiTechnoHeart } from "react-icons/gi";
+import { TbHeartsOff } from "react-icons/tb";
 
-const ProductCart = ({ item }) => {
+
+
+
+const ProductWishlist = ({item}) => {
   return (
     <div className={styles.card}>
       <div className={styles.cardImg}>
         <img src={item.thumbnail} alt="photo" />
         <button className={styles.cardBtnWish}>
-          <GiTechnoHeart />
+          <TbHeartsOff />
         </button>
         <button>
           ADD TO CART <HiOutlineArrowLongRight size={20} />
@@ -31,7 +34,7 @@ const ProductCart = ({ item }) => {
         <h6>€{item.price}</h6>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default ProductCart;
+export default ProductWishlist
