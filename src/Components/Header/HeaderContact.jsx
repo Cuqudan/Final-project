@@ -40,7 +40,7 @@ const HeaderContact = () => {
               <li onClick={() => navigation("/productlist")}>
                 <a href="">SHOP</a>
               </li>
-              <li onClick={() => navigation("/myaccount")}>
+              <li onClick={() => navigation("/login")}>
                 <a href="">PROFILE</a>
               </li>
             </ul>
@@ -80,7 +80,7 @@ const HeaderContact = () => {
             <li onClick={() => navigation("/productlist")}>
               <a href="">SHOP</a>
             </li>
-            <li onClick={() => navigation("/myaccount")}>
+            <li onClick={() => navigation("/login")}>
               <a href="">PROFILE</a>
             </li>
           </ul>

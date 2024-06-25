@@ -8,6 +8,8 @@ import MyAccount from "../Pages/MyAccount/MyAccount";
 import ProductList from "../Pages/ProductList/ProductList";
 import Basket from "../Pages/Basket/Basket";
 import Wishlist from "../Pages/Wishlist/Wishlist";
+import Login from "../Pages/Login/Login";
+import Register from "../Pages/Register/Register";
 
 
 const Router = () => {
@@ -23,6 +25,8 @@ const Router = () => {
           <Route path="/productlist" element={<ProductList/>}/>
           <Route path="/basket" element={<Basket/>}/>
           <Route path="/wishlist" element={<Wishlist/>}/>
+          <Route path="/login" element={<Login/>}/>
+          <Route path="/register" element={<Register/>}/>
         </Routes>
       </BrowserRouter>
     </div>

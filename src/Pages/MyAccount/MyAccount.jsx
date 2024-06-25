@@ -9,8 +9,6 @@ const MyAccount = () => {
     <div>
         <HeaderContact/>
         <SectionMyAccount/>
-        <Register/>
-        <Login/>
         <Footer/>
     </div>
   )

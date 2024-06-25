@@ -1,44 +1,68 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./Register.module.scss";
-import { useFormik } from "formik";
+import { useDispatch, useSelector } from "react-redux";
+import { useRegisterMutation } from "../../store/Reducers/userApiSlice";
+import { setCredentials } from "../../store/Reducers/authSlice";
+import { useNavigate } from "react-router-dom";
 const Login = () => {
-    const formik = useFormik({
-        initialValues: {
-          name: "",
-          email: "",
-          password: "",
-        },
-        onSubmit: (values) => {
-          formik.handleReset()
-        },
-      });
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const { userInfo } = useSelector((state) => state.auth);
+  // const [register, isLoading] = useRegisterMutation();
+  const dispatch = useDispatch();
+  const navigation = useNavigate();
+  // useEffect(() => {
+  //   if (userInfo) {
+  //     navigation("/");
+  //   }
+  // }, []);
+
+  const handleRegister = async (e) => {
+    // e.preventDefault();
+    // const res = await register({ name, email, password }).unwrap();
+    // dispatch(setCredentials({ ...res }));
+    // navigation("/myaccount");
+  };
+
   return (
     <div className={styles.register}>
-        <h1>REGISTER</h1>
-       <form onSubmit={formik.handleSubmit}>
-            <label htmlFor="Name">YOUR NAME</label>
-            <input
-              id="name"
-              type="text"
-              onChange={formik.handleChange}
-              value={formik.values.name}
-            />
-            <label htmlFor="email">YOUR EMAIL</label>
-            <input
-              id="email"
-              type="email"
-              onChange={formik.handleChange}
-              value={formik.values.email}
-            />
-            <label htmlFor="password">YOUR PASSWORD</label>
-            <input
-              id="password"
-              type="password"
-              onChange={formik.handleChange}
-              value={formik.values.password}
-            />
-            <button type="submit">REGISTER</button>
-          </form>
+      <h1>REGISTER</h1>
+      <form onSubmit={handleRegister}>
+      <label htmlFor="name">YOUR NAME</label>
+        <input
+          type="text"
+          name="name"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+        />
+        <label htmlFor="email">YOUR EMAIL</label>
+        <input
+          type="text"
+          name="email"
+          placeholder="Email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
+        <label htmlFor="password">YOUR PASSWORD</label>
+        <input
+          type="password"
+          name="password"
+          placeholder="Password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+        <div className={styles.registerBtns}>
+        <button>
+        REGISTER
+        </button>
+        <button onClick={() => navigation("/login")}>LOGIN</button>
+        </div>
+        {/* <button type="submit" disabled={isLoading}>
+          {isLoading ? "User creating" : "Register"}
+        </button> */}
+      </form>
     </div>
   );
 };
