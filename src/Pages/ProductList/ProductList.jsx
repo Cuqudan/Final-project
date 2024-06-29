@@ -8,20 +8,6 @@ import axios from "axios";
 const ProductList = () => {
   const [product, setproduct] = useState([]);
   const [search, setsearch] = useState("");
-  const [sorttype, setsorttype] = useState("");
-  useEffect(() => {
-    if (sorttype) {
-      setproduct((prevdata) =>
-        [...prevdata].sort((a, b) => {
-          if (sorttype === "abc") {
-            return a.title.localeCompare(b.title);
-          } else {
-            return b.title.localeCompare(a.title);
-          }
-        })
-      );
-    }
-  }, [sorttype]);
   const handleSearch = (event) => {
     setsearch(event.target.value);
   };
@@ -29,16 +15,26 @@ const ProductList = () => {
   const filteredproduct = product.filter((item) =>
     item.title.toLowerCase().includes(search.toLowerCase())
   );
-  const getdata = () => {
+  const getData = () => {
     axios
-      .get("https://dummyjson.com/products/?limit=15")
-      .then((res) => setproduct(res.data.products));
+      .get("http://localhost:8000/api/notes")
+      .then((res) => setproduct(res.data.allNotes));
   };
   useEffect(() => {
-    getdata();
+    getData();
   }, []);
-  const handlesort = (type) => {
-    setsorttype(type);
+  const filterProductclothes = () => {
+    const filteredByCategory = filteredproduct.filter(
+      (item) => item.catagory === "CLOTHES"
+    );
+    return filteredByCategory;
+  };
+
+  const filterProductspare = () => {
+    const filteredByCategory = filteredproduct.filter(
+      (item) => item.catagory === "SPARE PARTS"
+    );
+    return filteredByCategory;
   };
   return (
     <div className={styles.productlist}>
@@ -49,8 +45,8 @@ const ProductList = () => {
 
           <div className={styles.productlistItems}>
             <div className={styles.filterbtns}>
-              <button onClick={() => handlesort("abc")}>CLOTHES</button>
-              <button onClick={() => handlesort("cba")}>SPARE PARTS</button>
+              <button onClick={filterProductclothes}>CLOTHES</button>
+              <button onClick={filterProductspare}>SPARE PARTS</button>
             </div>
             <div className={styles.search}>
               <input

@@ -1,36 +1,42 @@
 import React, { useEffect, useState } from "react";
 import styles from "./Register.module.scss";
 import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { useRegisterMutation } from "../../store/Reducers/userApiSlice";
 import { setCredentials } from "../../store/Reducers/authSlice";
-import { useNavigate } from "react-router-dom";
-const Login = () => {
+
+const Register = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const { userInfo } = useSelector((state) => state.auth);
-  // const [register, isLoading] = useRegisterMutation();
+  const [register, { isLoading }] = useRegisterMutation();
   const dispatch = useDispatch();
-  const navigation = useNavigate();
-  // useEffect(() => {
-  //   if (userInfo) {
-  //     navigation("/");
-  //   }
-  // }, []);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (userInfo) {
+      navigate("/myaccount");
+    }
+  }, [userInfo, navigate]);
 
   const handleRegister = async (e) => {
-    // e.preventDefault();
-    // const res = await register({ name, email, password }).unwrap();
-    // dispatch(setCredentials({ ...res }));
-    // navigation("/myaccount");
+    e.preventDefault();
+    try {
+      const res = await register({ name, email, password }).unwrap();
+      dispatch(setCredentials(res));
+      navigate("/myaccount");
+    } catch (err) {
+      console.error("Failed to register: ", err);
+    }
   };
 
   return (
     <div className={styles.register}>
       <h1>REGISTER</h1>
       <form onSubmit={handleRegister}>
-      <label htmlFor="name">YOUR NAME</label>
+        <label htmlFor="name">YOUR NAME</label>
         <input
           type="text"
           name="name"
@@ -41,7 +47,6 @@ const Login = () => {
         <input
           type="text"
           name="email"
-          placeholder="Email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
@@ -54,17 +59,14 @@ const Login = () => {
           onChange={(e) => setPassword(e.target.value)}
         />
         <div className={styles.registerBtns}>
-        <button>
-        REGISTER
-        </button>
-        <button onClick={() => navigation("/login")}>LOGIN</button>
+          <button type="submit" disabled={isLoading}>
+            {isLoading ? "User creating" : "REGISTER"}
+          </button>
+          <button onClick={() => navigate("/login")}>LOGIN</button>
         </div>
-        {/* <button type="submit" disabled={isLoading}>
-          {isLoading ? "User creating" : "Register"}
-        </button> */}
       </form>
     </div>
   );
 };
 
-export default Login;
+export default Register;

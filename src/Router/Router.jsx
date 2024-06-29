@@ -10,7 +10,8 @@ import Basket from "../Pages/Basket/Basket";
 import Wishlist from "../Pages/Wishlist/Wishlist";
 import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
-
+import Payment from "../Pages/Payment/Payment";
+import Dashboard from "../Pages/Dashboard/Dashbord";
 
 const Router = () => {
   return (
@@ -27,6 +28,8 @@ const Router = () => {
           <Route path="/wishlist" element={<Wishlist/>}/>
           <Route path="/login" element={<Login/>}/>
           <Route path="/register" element={<Register/>}/>
+          <Route path="/payment" element={<Payment/>}/>
+          <Route path="/dashboard" element={<Dashboard/>}/>
         </Routes>
       </BrowserRouter>
     </div>

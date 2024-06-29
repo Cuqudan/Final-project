@@ -5,11 +5,11 @@ import { useNavigate } from "react-router-dom";
 
 const Header = () => {
   const navigation = useNavigate();
-  const [isOpen, setIsOpen] = useState(true);
+const [isOpen, setIsOpen] = useState(true);
 
-  const toggleDropdown = () => {
-    setIsOpen(!isOpen);
-  };
+const toggleDropdown = () => {
+  setIsOpen(!isOpen);
+};
   return (
     <div className={styles.header}>
       <div className={styles.container}>
@@ -46,7 +46,7 @@ const Header = () => {
               <li onClick={() => navigation("/productlist")}>
                 <a href="">SHOP</a>
               </li>
-              <li onClick={() => navigation("/login")}>
+              <li onClick={() => navigation("/register")}>
                 <a href="">PROFILE</a>
               </li>
             </ul>
@@ -95,7 +95,11 @@ const Header = () => {
         </div>
       )}
     </div>
-  );
-};
+  )
+}
 
-export default Header;
+export default Header
+
+
+
+

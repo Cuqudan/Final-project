@@ -1,20 +1,12 @@
 import React from "react";
 import styles from "./SectionContact.module.scss";
-import { useFormik } from "formik";
 import { CiLocationOn } from "react-icons/ci";
 import { MdOutlineLocalPhone } from "react-icons/md";
 import { TfiEmail } from "react-icons/tfi";
 const SectionContact = () => {
-  const formik = useFormik({
-    initialValues: {
-      name: "",
-      email: "",
-      message: "",
-    },
-    onSubmit: (values) => {
-      alert(JSON.stringify(values, null, 2));
-    },
-  });
+  const handleSubmit = () => {
+    
+  }
   return (
     <div className={styles.contact}>
       <div className={styles.container}>
@@ -43,27 +35,21 @@ const SectionContact = () => {
           </li>
         </div>
         <div className={styles.contactInputs}>
-          <form onSubmit={formik.handleSubmit}>
+          <form onSubmit={handleSubmit}>
             <label htmlFor="Name">YOUR NAME</label>
             <input
               id="name"
               type="text"
-              onChange={formik.handleChange}
-              value={formik.values.name}
             />
             <label htmlFor="email">YOUR EMAIL</label>
             <input
               id="email"
               type="email"
-              onChange={formik.handleChange}
-              value={formik.values.email}
             />
             <label htmlFor="lastName">YOUR MESSAGE</label>
             <input
               id="message"
               type="text"
-              onChange={formik.handleChange}
-              value={formik.values.message}
             />
             <button type="submit">SEND MESSAGE</button>
           </form>

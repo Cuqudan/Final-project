@@ -1,16 +1,13 @@
 import React, { useEffect, useState } from "react";
 import Footer from "../../Components/Footer/Footer";
-import styles from "../Home/Home.module.scss";
+import styles from "./Payment.module.scss";
 import axios from "axios";
 import HeaderContact from "../../Components/Header/HeaderContact";
-import ProductBasket from "../../Components/ProductCards/ProductBasket";
-import { GiWallet } from "react-icons/gi";
+import ProductPayment from "../../Components/ProductCards/ProductPayment";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { toast, ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 
-const Basket = () => {
+const Payment = () => {
   const [basketItems, setBasketItems] = useState([]);
   const { userInfo } = useSelector((state) => state.auth);
   const navigate = useNavigate();
@@ -84,42 +81,48 @@ const Basket = () => {
     setBasketItems(updatedBasketItems);
   };
 
-  const handlePayment = (itemPrice) => {
-    navigate("/basket/payment", { state: { itemPrice } });
-  };
-
+  
   return (
-    <div className={styles.home}>
+    <div className={styles.payment}>
       <HeaderContact />
-      <div className={styles.homeContainer}>
-        <div className={styles.homeText}>
-          <h1>BASKET</h1>
+      <div className={styles.paymentContainer}>
+        <div className={styles.paymentInputs}>
+          <h1>Payment</h1>
+          <form>
+            <label htmlFor="card-number">Card Number</label>
+            <input
+              type="number"
+              placeholder="1234 5678 9012 3456"
+              name="card-number"
+            />
+            <div className={styles.paymentInputExpiry}>
+              <div className={styles.expiry}>
+                <label htmlFor="expiry-month">Expiry Month</label>
+                <input type="number" placeholder="06" name="expiry-month" />
+              </div>
+              <div className={styles.expiry}>
+                <label htmlFor="expiry-year">Expiry Year</label>
+                <input type="number" placeholder="2025" name="expiry-year" />
+              </div>
+              <div className={styles.expiry}>
+                <label htmlFor="cvv">CVV</label>
+                <input type="number" placeholder="123" name="cvv" />
+              </div>
+            </div>
+            <button type="submit">Pay </button>
+          </form>
+        </div>
+        <div className={styles.paymentText}>
           <p>YOUR ORDERS</p>
         </div>
-        <div className={styles.homeCards}>
-          {basketItems &&
-            basketItems.map((item) => (
-              <ProductBasket
-                key={item.productId}
-                item={item}
-                plus={() => handleIncreaseQuantity(item._id)}
-                minus={() => handleDecreaseQuantity(item._id)}
-                removetocart={() => handleDecreaseQuantity(item._id)}
-              />
-            ))}
+        <div className={styles.paymentCards}>
+          {basketItems && basketItems.map((item) => <ProductPayment item={item} 
+                Removetopayment={() => handleDecreaseQuantity(item._id)}/>)}
         </div>
-        <button
-          onClick={() => navigate("/payment")}
-          className={styles.homePaymentBtn}
-        >
-          PAYMENT
-          <GiWallet />
-        </button>
       </div>
       <Footer />
-      <ToastContainer />
     </div>
   );
 };
 
-export default Basket;
+export default Payment;

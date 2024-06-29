@@ -11,15 +11,18 @@ import styles from "./Home.module.scss";
 import ProductCart from "../../Components/ProductCards/ProductCart";
 import axios from "axios";
 const Home = () => {
-  const [product, setproduct] = useState([]);
-  const getdata = () => {
+  const [product, setProduct] = useState([]);
+
+  const getData = () => {
     axios
-      .get("https://dummyjson.com/products/?limit=9")
-      .then((res) => setproduct(res.data.products));
+      .get("http://localhost:8000/api/notes")
+      .then((res) => setProduct(res.data.allNotes));
   };
+
   useEffect(() => {
-    getdata();
+    getData();
   }, []);
+
 
   return (
     <div className={styles.home}>
@@ -29,12 +32,13 @@ const Home = () => {
       <div className={styles.homeContainer}>
         <div className={styles.homeText}>
           <h1>
-          IMPROVE GENERAL <br /> RIDEABILITY
+            IMPROVE GENERAL <br /> RIDEABILITY
           </h1>
           <p>P E R F O R M A N C E</p>
         </div>
         <div className={styles.homeCards}>
-          {product && product.map((item) => <ProductCart item={item} />)}
+          {product &&
+            product.map((item) => <ProductCart key={item.id} item={item} />)}
         </div>
       </div>
       <SectionAdrenalin />
